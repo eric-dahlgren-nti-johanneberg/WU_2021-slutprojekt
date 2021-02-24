@@ -1,0 +1,209 @@
+/* 
+    1. CSS variables
+    2. Fonts
+    3. Element selectors
+    4. Specific elements
+    5. Classes
+    6. Media queries
+*/
+
+/* 1. CSS Variables */
+:root {
+  --gray800: #1a202c;
+  --gray700: #2d3748;
+  --gray600: #4a5568;
+
+  --purple200: #d6bcfa;
+  --purple300: #b794f4;
+  --purple800: #44337a;
+
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+
+  --primary: var(--purple300);
+
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+}
+
+/* 2. Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+/* 3. Element selectors */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--gray800);
+  color: var(--slate);
+  font-size: var(--fz-lg);
+  line-height: 1.3;
+}
+
+main {
+  padding: 0 150px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 0px auto;
+  max-width: 1000px;
+}
+
+header {
+  width: 100%;
+}
+
+header nav {
+  margin: 0 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 4. Specific elements */
+
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#hero p {
+  max-width: 500px;
+}
+
+/* 5. Classes */
+
+.bigger-heading {
+  margin: 0;
+  font-size: clamp(30px, 6vw, 70px);
+  font-weight: bolder;
+}
+
+.big-heading {
+  margin: 0;
+  font-size: clamp(20px, 6vw, 50px);
+  font-weight: bolder;
+}
+
+.brightest-slate {
+  color: var(--lightest-slate);
+}
+
+.bright-slate {
+  color: var(--light-slate);
+}
+
+.contact-button {
+  border-radius: 4px;
+  margin-top: 3rem;
+  padding: 1rem 2rem;
+  border-style: solid;
+  border-color: var(--primary);
+  font-size: var(--fz-md);
+  border-width: 1px;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links li a {
+  padding: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.header-top {
+  position: absolute;
+}
+
+.header-show {
+  position: fixed;
+  top: 0;
+}
+
+.header-hide {
+}
+
+.link {
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--purple200);
+}
+
+.button {
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  color: var(--purple200);
+  background-color: #b794f41f;
+}
+
+.hero-decoration {
+  position: relative;
+}
+
+.hero-decoration::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  height: 30%;
+  z-index: -1;
+  background-color: var(--purple800);
+}
+
+/* 6. Media queries */
+@media (max-width: 1080px) {
+  main {
+    padding: 0 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 25px;
+  }
+}
