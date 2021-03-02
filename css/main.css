@@ -41,6 +41,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "Noto Sans", sans-serif;
@@ -58,21 +62,37 @@ main {
   margin: 0 auto;
 }
 
-section {
+body > section {
   margin: 0px auto;
   max-width: 1000px;
 }
 
 header {
   width: 100%;
+  z-index: 10;
+  background-color: #1a202cc0;
 }
 
-header nav {
+header > nav {
   margin: 0 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
+}
+
+header section nav {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--primary);
+  font-size: var(--fz-xxl);
 }
 
 /* 4. Specific elements */
@@ -83,6 +103,7 @@ header nav {
   align-items: flex-start;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
 }
 
 #hero p {
@@ -91,6 +112,27 @@ header nav {
 
 #about {
   min-height: 40vh;
+}
+
+#crazyNav {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 80px;
+  transition: all 0.4s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a202cc0;
+}
+
+nav #logo {
+  font-size: 2rem;
 }
 
 /* 5. Classes */
@@ -152,9 +194,6 @@ header nav {
   top: 0;
 }
 
-.header-hide {
-}
-
 .section-header {
   color: var(--purple300);
   font-size: var(--fz-lg);
@@ -198,6 +237,73 @@ header nav {
   z-index: -1;
   background-color: var(--purple800);
 }
+
+.block-scroll {
+  overflow: hidden;
+}
+
+.scroll-margin {
+  margin-right: 10px;
+}
+
+/* menu icon */
+
+.animated-icon {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: inline-block;
+}
+.animated-icon .ani {
+  top: 18.5px;
+  left: 5px;
+}
+.animated-icon .ani,
+.animated-icon .ani:before,
+.animated-icon .ani:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 28px;
+  background: var(--purple300);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.animated-icon .ani:before,
+.animated-icon .ani:after {
+  background: inherit;
+}
+
+.animated-icon.menu-cross .ani:before {
+  top: -8px;
+  right: 0;
+}
+.animated-icon.menu-cross .ani:after {
+  top: 8px;
+  right: 0;
+}
+.animated-icon.menu-cross.open .ani {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.animated-icon.menu-cross.open .ani:before {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.animated-icon.menu-cross.open .ani:after {
+  top: 0;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+/* end menu icon */
 
 /* 6. Media queries */
 @media (max-width: 1080px) {
