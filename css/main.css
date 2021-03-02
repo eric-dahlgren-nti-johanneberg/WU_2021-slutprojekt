@@ -89,6 +89,10 @@ header nav {
   max-width: 500px;
 }
 
+#about {
+  min-height: 40vh;
+}
+
 /* 5. Classes */
 
 .bigger-heading {
@@ -149,6 +153,12 @@ header nav {
 }
 
 .header-hide {
+}
+
+.section-header {
+  color: var(--purple300);
+  font-size: var(--fz-lg);
+  text-align: center;
 }
 
 .link {
