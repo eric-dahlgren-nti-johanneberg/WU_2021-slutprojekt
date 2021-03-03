@@ -1,18 +1,41 @@
 const hamburgerButton = document.getElementById("hamburger");
 const navSection = document.getElementById("crazyNav");
 const linkList = document.getElementsByClassName("link-list")[0];
+const header = document.getElementsByTagName("header")[0];
+
+function getScrollbarWidth() {
+  // Creating invisible container
+  const outer = document.createElement("div");
+  outer.style.visibility = "hidden";
+  outer.style.overflow = "scroll"; // forcing scrollbar to appear
+  outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+  document.body.appendChild(outer);
+
+  // Creating inner element and placing it in the container
+  const inner = document.createElement("div");
+  outer.appendChild(inner);
+
+  // Calculating difference between container's full width and the child width
+  const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+
+  // Removing temporary elements from the DOM
+  outer.parentNode.removeChild(outer);
+
+  return scrollbarWidth;
+}
+
 function disableScroll() {
-  // Get the current page scroll position
-  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  (scrollLeft = window.pageXOffset || document.documentElement.scrollLeft),
-    // if any scroll is attempted, set this to the previous value
-    (window.onscroll = function () {
-      window.scrollTo(scrollLeft, scrollTop);
-    });
+  document.body.classList.toggle("block-scroll");
+  document.body.style.marginRight = `${getScrollbarWidth()}px`;
+  navSection.style.paddingRight = `${getScrollbarWidth()}px`;
+  header.style.paddingRight = `${getScrollbarWidth()}px`;
 }
 
 function enableScroll() {
-  window.onscroll = function () {};
+  document.body.classList.toggle("block-scroll");
+  document.body.style.marginRight = "0";
+  navSection.style.paddingRight = "0";
+  header.style.paddingRight = "0";
 }
 
 const showMenu = () => {
@@ -35,6 +58,9 @@ const toggleMenu = () => {
     showMenu();
   }
 };
+
+console.log(document.body.clientWidth);
+console.log(document.body.offsetWidth);
 
 linkList.childNodes.forEach((node) => node.addEventListener("click", hideMenu));
 
