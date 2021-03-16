@@ -1,6 +1,6 @@
 // changing words in hero section
 
-const words = ["useful", "fun", "interactive", "accessible", "great"];
+const words = ["useful", "fun", "interactive", "accessible", "great", "right now"];
 
 const wordElement = document.getElementById("hero-verb");
 setInterval(() => {
