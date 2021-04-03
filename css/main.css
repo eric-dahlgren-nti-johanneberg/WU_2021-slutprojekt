@@ -197,6 +197,37 @@ input {
   text-align: center;
 }
 
+#blog {
+  max-width: 780px;
+  margin: 2rem auto;
+}
+
+#blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#blog-posts article {
+  background-color: var(--gray700);
+  padding: 2rem;
+}
+
+#blog-posts article h3 {
+  color: var(--lightest-slate);
+  margin: 0;
+}
+#blog-posts article h4 {
+  color: var(--slate);
+  margin: 0;
+}
+#blog-posts article p  {
+  color: var(--light-slate);
+  margin: 8px 0 0 0;
+  font-size: medium;
+  font-weight: normal;
+}
+
 /* 5. Classes */
 
 .bigger-heading {

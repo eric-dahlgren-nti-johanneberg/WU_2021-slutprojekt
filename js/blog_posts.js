@@ -10,7 +10,7 @@ const createArticleHTML = (article) => {
   </article>`;
 };
 
-const blogContainer = document.getElementById("blog");
+const blogContainer = document.getElementById("blog-posts");
 const fetchLatestBlogPosts = async () => {
   const posts = await fetch("https://blog.dgren.dev/api/latest").then((res) =>
     res.json()
