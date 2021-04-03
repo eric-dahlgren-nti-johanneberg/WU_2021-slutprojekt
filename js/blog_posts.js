@@ -17,6 +17,11 @@ const fetchLatestBlogPosts = async () => {
   );
 
   console.log(posts);
+
+  blogContainer.innerHTML = posts
+    .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
+    .map((p) => createArticleHTML(p))
+    .join("");
 };
 
 fetchLatestBlogPosts();
