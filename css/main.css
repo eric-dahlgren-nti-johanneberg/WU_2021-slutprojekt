@@ -47,6 +47,8 @@ html {
 
 body {
   margin: 0;
+  /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
+
   font-family: "Noto Sans", sans-serif;
   background-color: var(--gray800);
   color: var(--slate);
@@ -102,6 +104,10 @@ nav a {
   font-size: var(--fz-xxl);
 }
 
+input {
+  width: 100%;
+}
+
 /* 4. Specific elements */
 
 #hero {
@@ -129,11 +135,16 @@ nav a {
   margin: auto;
 }
 
-#spacer {
+#cta {
   min-height: 40vh;
   background-color: var(--gray700);
   width: 100%;
   max-width: unset;
+  display: grid;
+  padding: 32px 150px;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 #crazyNav {
@@ -153,8 +164,9 @@ nav a {
   background-color: #1a202cc0;
 }
 
-nav #logo {
-  font-size: 2rem;
+#logo {
+  height: 25px;
+  margin: auto;
 }
 
 #project-grid {
@@ -175,6 +187,16 @@ nav #logo {
   margin: 0;
 }
 
+#notify {
+  grid-column: 1;
+  text-align: center;
+}
+
+#contact {
+  grid-column: 2;
+  text-align: center;
+}
+
 /* 5. Classes */
 
 .bigger-heading {
@@ -186,6 +208,11 @@ nav #logo {
 .big-heading {
   margin: 0;
   font-size: clamp(20px, 6vw, 50px);
+  font-weight: bolder;
+}
+.heading {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 25px);
   font-weight: bolder;
 }
 
@@ -377,14 +404,16 @@ nav #logo {
 /* 6. Media queries */
 @media (max-width: 1080px) {
   main,
-  nav {
+  nav,
+  #cta {
     padding: 0 100px;
   }
 }
 
 @media (max-width: 768px) {
   main,
-  nav {
+  nav,
+  #cta {
     padding: 0 50px;
   }
 
@@ -401,9 +430,14 @@ nav #logo {
   }
 }
 
+ul {
+  list-style: none;
+}
+
 @media (max-width: 480px) {
   main,
-  nav {
+  nav,
+  #cta {
     padding: 0 25px;
   }
 
