@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 
-<!-- 
-
-      _----------_,
-    ,"__   help  _-:, 
-   /    ""--_--""...:\
-  /i live   |.........\
- /in constant..........\
-/,  pain   _'_........./:
-! -,    _-"   "-_... ,;;:
-\   -_-"         "-_/;;;;
- \   \  there is   /;;;;'
-  \   \  only     /;;;;
-   '.  \ suffering;;;'
-     "-_\_______/;;'
-
-    made with crippling depression
-
- -->
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,16 +10,13 @@
       name="description"
       content="portfolio for github.com/eriyc, also known as Eric Dahlgren"
     />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="/css/main.min.css" />
+    <!--     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    /> -->
+
     <script
       src="https://kit.fontawesome.com/1462ced17e.js"
       crossorigin="anonymous"
@@ -46,36 +24,41 @@
     <title>Eric Dahlgren</title>
   </head>
   <body>
-    <header role="navigation" class="header-show">
+    <header class="header-show">
       <nav>
         <h1>
-          <a href="/"
+          <a href="/" tabindex="0" aria-label="Return to top (logo)"
             ><img
               src="img/logga.png"
               id="logo"
               alt="logo image with text 'dgren'"
           /></a>
         </h1>
-        <span id="hamburger" class="animated-icon menu-cross"
+        <span id="hamburger" class="hamburger-icon menu-cross"
           ><span class="ani"></span
         ></span>
       </nav>
       <section id="crazyNav">
         <nav class="link-list">
           <a href="#about" class="link">about</a>
-          <a href="#about" class="link">projects</a>
+          <a href="#projects" class="link">projects</a>
+          <a href="#blog" class="link">blog</a>
+          <a class="filled-btn link">résumé</a>
           <section>
             <a
               class="link icon-large"
               href="https://github.com/Eriyc"
               target="_blank"
-            >
-              <i class="fab fa-github"></i>
+              rel="noreferrer"
+              aria-label="link to github"
+              ><i class="fab fa-github"></i>
             </a>
             <a
               class="link icon-large"
               href="https://twitter.com/imeriyc"
               target="_blank"
+              rel="noreferrer"
+              aria-label="twitter"
             >
               <i class="fab fa-twitter"></i>
             </a>
@@ -83,6 +66,8 @@
               class="link icon-large"
               href="https://www.linkedin.com/in/eriyc/"
               target="_blank"
+              rel="noreferrer"
+              aria-label="linkedin"
             >
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -92,26 +77,30 @@
     </header>
     <main>
       <section id="hero">
+        <canvas id="hero-canvas"></canvas>
         <h1 class="bigger-heading brightest-slate">Eric Dahlgren.</h1>
         <h2 class="big-heading">
           Making applications
-          <span class="hero-decoration" id="hero-verb">useful</span>
+          <span class="hero-decoration" id="hero-verb">useful</span>.
         </h2>
-        <p>text bla bla bla jättebra på webbsidor osv</p>
+        <p>very proficient in html.</p>
         <a
           class="contact-button button"
           role="button"
           href="mailto:eric@dgren.dev"
           target="_blank"
-          >mail knapp</a
+          >contact button</a
         >
+        <a class="link" id="scroll-btn" href="#about" aria-label="scroll down"
+          ><i class="fas fa-arrow-down"></i
+        ></a>
       </section>
       <section id="about">
         <h2 class="section-header">about me</h2>
         <section class="two-columns">
           <figure class="photo">
-            <img src="img/avatar.jpg" alt="a placeholder image" />
-            <figcaption>Här kan det finnas en bild</figcaption>
+            <img src="img/avatar.png" alt="a placeholder image" />
+            <figcaption>here be images</figcaption>
           </figure>
           <section>
             <p>
@@ -131,77 +120,77 @@
         <h2 class="section-header">projects</h2>
         <section id="project-grid">
           <article class="grid-span-2">
-            <h4>project 1</h4>
+            <h3>project 1</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
               accusantium repudiandae, totam expedita culpa optio enim. Nesciunt
               iste porro sunt?
             </p>
             <section class="align-bottom">
-              <a class="link icon-large">
+              <a class="link icon-large" aria-label="github" href="#">
                 <i class="fab fa-github"></i>
               </a>
-              <a class="link icon-large">
+              <a class="link icon-large" aria-label="website" href="#">
                 <i class="fas fa-pager"></i>
               </a>
             </section>
           </article>
           <article>
-            <h4>project 2</h4>
+            <h3>project 2</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
               accusantium repudiandae.
             </p>
             <section class="align-bottom">
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="link to github">
                 <i class="fab fa-github"></i>
               </a>
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="visit live page">
                 <i class="fas fa-pager"></i>
               </a>
             </section>
           </article>
           <article>
-            <h4>project 3</h4>
+            <h3>project 3</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
               accusantium repudiandae.
             </p>
             <section class="align-bottom">
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="link to github">
                 <i class="fab fa-github"></i>
               </a>
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="visit live page">
                 <i class="fas fa-pager"></i>
               </a>
             </section>
           </article>
           <article>
-            <h4>project 4</h4>
+            <h3>project 4</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia
               accusantium repudiandae.
             </p>
             <section class="align-bottom">
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="link to github">
                 <i class="fab fa-github"></i>
               </a>
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="visit live page">
                 <i class="fas fa-pager"></i>
               </a>
             </section>
           </article>
           <article>
-            <h4>project 5</h4>
+            <h3>project 5</h3>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam,
               vitae harum corporis a in modi obcaecati ratione!
             </p>
             <section class="align-bottom">
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="link to github">
                 <i class="fab fa-github"></i>
               </a>
-              <a class="link icon-large">
+              <a class="link icon-large" href="#" aria-label="visit live page">
                 <i class="fas fa-pager"></i>
               </a>
             </section>
@@ -213,26 +202,30 @@
         </p>
       </section>
       <section id="blog">
-        <h2 class="section-header">Blog posts</h2>
+        <h2 class="section-header">blog</h2>
         <section id="blog-posts"></section>
       </section>
     </main>
     <section id="cta">
-      <section id="notify">
-        <h3 class="heading">get notified</h3>
-        <input />
+      <section>
+        <h3 class="section-header">get notified</h3>
+        <p>I never send out spam</p>
       </section>
-      <section id="contact">
-        <h3 class="heading">contact me</h3>
-        <input />
-        <input />
-      </section>
+      <input placeholder="your email here" />
+      <button>sign up for notifications</button>
     </section>
     <section id="decoration"></section>
-    <footer id="footer"><h2 class="section-header">thats all</h2></footer>
+    <footer id="footer">
+      <h2 class="section-header">thats all</h2>
+      <code>eric dahlgren 2021</code>
+    </footer>
     <script src="js/blobs.js" type="module"></script>
     <script src="js/effects.js"></script>
     <script src="js/hamburger.js"></script>
     <script src="js/blog_posts.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </body>
 </html>

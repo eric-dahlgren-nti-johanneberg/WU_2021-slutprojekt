@@ -17,7 +17,7 @@
   --purple300: #b794f4;
   --purple800: #44337a;
 
-  --slate: #8892b0;
+  --slate: #9299ad;
   --light-slate: #a8b2d1;
   --lightest-slate: #ccd6f6;
 
@@ -43,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -63,6 +64,13 @@ main {
   margin: 0 auto;
   transition: all ease 0.2s;
 }
+p {
+  color: var(--light-slate);
+}
+
+main section .section-header {
+  padding-top: 6rem;
+}
 
 body > section {
   margin: 0px auto;
@@ -73,7 +81,7 @@ body > section {
 header {
   width: 100%;
   z-index: 10;
-  background-color: #1a202cc0;
+  background-color: #1a202cde;
 }
 
 nav {
@@ -106,17 +114,46 @@ nav a {
 
 input {
   width: 100%;
+  padding: 0.7rem;
+  transition: all 0.5s ease;
+  margin-bottom: 8px;
+  color: white;
+  height: 44px;
+  margin: auto;
+}
+
+input:focus {
+  background-color: #1a202c;
+}
+
+button {
+  padding: 0.7rem;
+  width: 100%;
+  height: 44px;
+  margin: auto;
+}
+
+footer {
+  flex-direction: column;
+  display: flex;
+  padding: 1rem 0 2rem;
+}
+
+code {
+  text-align: center;
 }
 
 /* 4. Specific elements */
 
 #hero {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 6rem);
   position: relative;
+  overflow-x: hidden;
 }
 
 #hero p {
@@ -125,7 +162,6 @@ input {
 }
 
 #about {
-  min-height: 50vh;
   max-width: 870px;
   margin: auto;
 }
@@ -136,15 +172,17 @@ input {
 }
 
 #cta {
-  min-height: 40vh;
+  margin-top: 6rem;
+  min-height: 30vh;
   background-color: var(--gray700);
   width: 100%;
   max-width: unset;
   display: grid;
   padding: 32px 150px;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr;
+  column-gap: 1rem;
 }
 
 #crazyNav {
@@ -161,11 +199,11 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a202cc0;
+  background-color: #1a202cde;
 }
 
 #logo {
-  height: 25px;
+  height: 35px;
   margin: auto;
 }
 
@@ -183,18 +221,12 @@ input {
   flex-direction: column;
 }
 
-#project-grid article h4 {
+#project-grid article h3 {
   margin: 0;
+  color: var(--lightest-slate);
 }
-
-#notify {
-  grid-column: 1;
-  text-align: center;
-}
-
-#contact {
-  grid-column: 2;
-  text-align: center;
+#project-grid article p {
+  color: var(--light-slate);
 }
 
 #blog {
@@ -218,14 +250,54 @@ input {
   margin: 0;
 }
 #blog-posts article h4 {
-  color: var(--slate);
+  color: var(--light-slate);
   margin: 0;
 }
-#blog-posts article p  {
+#blog-posts article p {
   color: var(--light-slate);
   margin: 8px 0 0 0;
   font-size: medium;
   font-weight: normal;
+}
+
+#cta section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 1;
+}
+
+#cta section h3,
+#cta section p {
+  text-align: start;
+  margin: 0;
+}
+
+#cta input {
+  grid-column: 2;
+}
+
+#cta button {
+  grid-column: 3;
+}
+
+#scroll-btn {
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  left: 50%;
+  font-size: var(--fz-xxl);
+  transform: translate(-50%, 0);
+}
+
+#hero-canvas {
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
 /* 5. Classes */
@@ -242,7 +314,7 @@ input {
   font-weight: bolder;
 }
 .heading {
-  margin: 0;
+  margin: 0 0 8px 0;
   font-size: clamp(20px, 2vw, 25px);
   font-weight: bolder;
 }
@@ -321,6 +393,17 @@ input {
   background-color: #b794f41f;
 }
 
+.filled-btn {
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--gray800);
+  border: 2px solid var(--primary);
+  padding: 0.5rem 1rem;
+}
+.filled-btn:hover {
+  color: var(--gray600);
+}
+
 .hero-decoration {
   position: relative;
   text-overflow: none;
@@ -340,15 +423,23 @@ input {
 
 .block-scroll {
   overflow: hidden;
+  scrollbar-width: none;
 }
 
+.block-scroll::-webkit-scrollbar {
+  display: none;
+}
 .scroll-margin {
   margin-right: 10px;
 }
 
-/* menu icon, hittad på  */
+/* 
+  menu icon, ett sträck i .ani, ett sträck i 
+  .ani::after samt i .ani::before,
+  många klasser men väldigt simpelt egentligen
+*/
 
-.animated-icon {
+.hamburger-icon {
   position: relative;
   width: 38px;
   height: 38px;
@@ -357,13 +448,13 @@ input {
   transition: 0.3s;
   display: inline-block;
 }
-.animated-icon .ani {
+.hamburger-icon .ani {
   top: 18.5px;
   left: 5px;
 }
-.animated-icon .ani,
-.animated-icon .ani:before,
-.animated-icon .ani:after {
+.hamburger-icon .ani,
+.hamburger-icon .ani:before,
+.hamburger-icon .ani:after {
   content: "";
   position: absolute;
   height: 3px;
@@ -372,31 +463,31 @@ input {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-.animated-icon .ani:before,
-.animated-icon .ani:after {
+.hamburger-icon .ani:before,
+.hamburger-icon .ani:after {
   background: inherit;
 }
 
-.animated-icon.menu-cross .ani:before {
+.hamburger-icon.menu-cross .ani:before {
   top: -8px;
   right: 0;
 }
-.animated-icon.menu-cross .ani:after {
+.hamburger-icon.menu-cross .ani:after {
   top: 8px;
   right: 0;
 }
-.animated-icon.menu-cross.open .ani {
+.hamburger-icon.menu-cross.open .ani {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.animated-icon.menu-cross.open .ani:before {
+.hamburger-icon.menu-cross.open .ani:before {
   top: 0;
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-.animated-icon.menu-cross.open .ani:after {
+.hamburger-icon.menu-cross.open .ani:after {
   top: 0;
   -webkit-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
@@ -458,6 +549,22 @@ input {
 
   .photo {
     grid-area: 2 / 1;
+  }
+
+  #cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #cta * {
+    margin: 4px;
+    text-align: center;
+  }
+
+  #cta section h3,
+  #cta section p {
+    text-align: center;
   }
 }
 

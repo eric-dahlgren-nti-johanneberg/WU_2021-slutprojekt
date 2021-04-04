@@ -25,14 +25,14 @@ function getScrollbarWidth() {
 }
 
 function disableScroll() {
-  document.body.classList.toggle("block-scroll");
+  document.documentElement.classList.toggle("block-scroll");
   document.body.style.marginRight = `${getScrollbarWidth()}px`;
   navSection.style.paddingRight = `${getScrollbarWidth()}px`;
   header.style.paddingRight = `${getScrollbarWidth()}px`;
 }
 
 function enableScroll() {
-  document.body.classList.toggle("block-scroll");
+  document.documentElement.classList.toggle("block-scroll");
   document.body.style.marginRight = "0";
   navSection.style.paddingRight = "0";
   header.style.paddingRight = "0";
